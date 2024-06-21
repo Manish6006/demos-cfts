@@ -7,4 +7,4 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: my-first-bucket
+      BucketName: my-first-bucket-kkn
