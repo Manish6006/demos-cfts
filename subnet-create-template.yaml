@@ -1,0 +1,14 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Create Subnets from New VPC"
+Resources:
+  MyNewVPCSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: "ap-south-1a"
+      AvailabilityZoneId: "aps1-az1"
+      CidrBlock: 172.32.16.0/24
+      Tags:
+       - Key: Name
+         Value: SubnetSouthAZ1
+      VpcId: vpc-0fe0f81fe1e38d98f
