@@ -70,7 +70,6 @@ Resources:
       InstanceType: !Ref InstanceType
       AvailabilityZone: !Ref InstanceAz1
       KeyName: !Ref MyDevKeys
-      SecurityGroups: !Ref MyDevSG
       Tags:
         - Key: Name
           Value: EC2DevInstance
