@@ -5,7 +5,7 @@ Resources:
   Ec2FromCFT:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: "ami-022ce6f32988af5fa"
+      ImageId: "ami-1258965"
       AvailabilityZone: "ap-south-1a"
       InstanceType: "t2.micro"
       Tags:
