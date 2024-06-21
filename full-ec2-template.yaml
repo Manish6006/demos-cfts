@@ -4,7 +4,7 @@ Parameters:
   AmiId:
     Description: Dev environment ami
     Type: String
-    Default: ami-022ce6f32988af5fa
+    Default: ami-1258455
 
   InstanceType:
     Description: Instance Type
@@ -20,7 +20,7 @@ Resources:
   MyDevVPC:
     Type: AWS::EC2::VPC
     Properties:
-      CidrBlock: 172.32.0.0/16
+      CidrBlock: 0.0.0.0/0
       Tags:
        - Key: Name
          Value: Ec2DevVPC
@@ -28,7 +28,7 @@ Resources:
   MyDevSubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 172.32.64.0/24
+      CidrBlock: 0.0.0.0/0
       Tags:
        - Key: Name
          Value: Ec2DevSubnet
@@ -42,7 +42,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 192.168.1.101/32
+          CidrIp: 0.0.0.0/0
       Tags:
        - Key: Name
          Value: SSHDevSecurityGroup
