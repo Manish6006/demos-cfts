@@ -8,3 +8,6 @@ Resources:
       ImageId: "ami-022ce6f32988af5fa"
       AvailabilityZone: "ap-south-1a"
       InstanceType: "t2.micro"
+      Tags:
+      - Key: Name
+        Value: EC2InstanceFromCFT
