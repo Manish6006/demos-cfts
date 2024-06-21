@@ -7,28 +7,19 @@ Parameters:
    Description: "AutoScaling Name"
    Type: String
    Default: AutoScalingUsingCFT
-#Supported AWS-specific parameter types
-   AZNames:
+
+
+  AZNames:
     Description: "ASG Availability Zone"
     Type: List<AWS::EC2::AvailabilityZone::Name>
     Default: ap-south-1a
 
-    MyMaxCapacity:
-      Description: "This is Max Capacity"
-      Type: Integer
-      Default: 1
-
-    MyMinCapacity:
-      Description: "This is min capacity"
-      Type: Integer
-      Default: 1
-
-    LatestAMIId:
+  LatestAMIId:
       Description: "Region specific image from the Parameters store"
       Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
       Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
 
-    InstanceType:
+  InstanceType:
       Description: "Amazon EC2 Instance Type for the instances"
       Type: String
       AllowedValues:
@@ -37,9 +28,9 @@ Parameters:
         - t3.medium
       Default: t2.micro
 
-      Subnets:
+  Subnets:
         Description: "A list of subnets for the auto scaling groups"
-        Type: List<AWS::EC2:Subnet::Id>
+        Type: List<AWS::EC2::Subnet::Id>
 
 Resources:
   MyLaunchTemplateExample:
@@ -59,7 +50,10 @@ Resources:
       MaxSize: 1
       MinSize: 1
       VPCZoneIdentifier: !Ref Subnets
-      
+      Tags:
+       - Key: Name
+         Value: !Ref ASGName
+
 
 
 
