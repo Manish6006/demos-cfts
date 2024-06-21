@@ -11,6 +11,6 @@ Parameters:
     Ec2FromCFT:
       Type: AWS::EC2::Instance
       Properties:
-        ImageId: ""
-        AvailabilityZone: ""
+        ImageId: "ami-022ce6f32988af5fa"
+        AvailabilityZone: "ap-south-1a"
         InstanceType: "t2.micro"
