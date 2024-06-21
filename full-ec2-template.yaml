@@ -1,0 +1,86 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Launching EC2 Instance with all details"
+
+Parameters:
+  AmiId:
+    Description: Dev environment ami
+    Type: String
+    Default: ami-022ce6f32988af5fa
+
+  InstanceType:
+    Description: Instance Type
+    Type: String
+    Default: t2.micro
+
+  InstanceAz1:
+    Description: Subnet AZ 1
+    Type: AWS::EC2::AvailabilityZone::Name
+    Default: ap-south-1a
+
+  Resources:
+    MyDevVPC:
+      Type: AWS::EC2::VPC
+      Properties:
+        CidrBlock: 172.32.0.0/16
+        Tags:
+         - Key: Name
+           Value: Ec2DevVPC
+    
+    MyDevSubnet:
+      Type: AWS::EC2::Subnet
+      Properties:
+        CidrBlock: 172.32.64.0/24
+        Tags:
+         - Key: Name
+           Value: Ec2DevSubnet
+        VpcId: !Ref MyDevVPC
+
+    MyDevSG:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Enable SSH Connection for EC2
+        SecurityGroupIngress:
+          - IpProtocol: tcp
+            FromPort: 22
+            ToPort: 22
+            CidrIp: 192.168.1.101/32
+        Tags:
+         - Key: Name
+           Value: SSHDevSecurityGroup
+        VpcId: !Ref MyDevVPC
+
+    MyDevKeys:
+      Type: AWS::EC2::KeyPair
+      Properties:
+        KeyName: EC2DevKeyPair
+
+    MyDevInstanceEBS:
+      Type: AWS::EC2::InstanceEbs
+      Properties:
+       AvailabilityZone: !Ref InstanceAz1
+       VolumeType: gp3
+       VolumeSize: 10
+       DeleteOnTermination: true
+       Tags:
+        - Key: Name
+          Value: EBSDevInstance
+
+    MyDevEc2Instance:
+      Type: AWS::EC2::Instance
+      Properties:
+        ImageId: !Ref AmiId
+        InstanceType: !Ref InstanceType
+        AvailabilityZone: !Ref InstanceAz1
+        KeyName: !Ref MyDevKeys
+        SecurityGroups: !Ref MyDevSG
+        Tags:
+         - Key: Name
+           Value: EC2DevInstance
+        BlockDeviceMapping:
+          - DeviceName: /dev/xvda
+            Ebs: !Ref MyDevInstanceEBS
+
+        
+
+
+
