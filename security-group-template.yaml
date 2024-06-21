@@ -5,7 +5,12 @@ Resources:
   MyFirstSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Empty Security Group for Testing
+      GroupDescription: Enable SSH connection for EC2
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 192.168.1.101/32
       Tags:
       - Key: Name
-        Value: EmptySecurityGroup
+        Value: SSHSecurityGroup
