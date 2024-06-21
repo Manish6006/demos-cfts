@@ -58,7 +58,7 @@ Resources:
     Properties:
       AvailabilityZone: !Ref InstanceAz1
       VolumeType: gp3
-      VolumeSize: 10
+      Size: 10
       DeleteOnTermination: true
       Tags:
        - Key: Name
