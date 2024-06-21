@@ -8,5 +8,4 @@ Resources:
       LaunchTemplateData:
         ImageId: ami-0e1d06225679bc1c5
         InstanceType: "t2.micro"
-        AvailabilityZone: "ap-south-1b"
       LaunchTemplateName: FirstLaunchTemplateCFT
