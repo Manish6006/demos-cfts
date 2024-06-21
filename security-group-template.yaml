@@ -5,6 +5,7 @@ Resources:
   MyFirstSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
+      GroupDescription: Empty Security Group for Testing
       Tags:
       - Key: Name
         Value: EmptySecurityGroup
