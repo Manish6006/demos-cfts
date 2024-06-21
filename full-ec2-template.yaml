@@ -53,16 +53,16 @@ Resources:
     Properties:
       KeyName: EC2DevKeyPair
 
-  MyDevInstanceEBS:
-    Type: AWS::EC2::InstanceEbs
-    Properties:
-      AvailabilityZone: !Ref InstanceAz1
-      VolumeType: gp3
-      VolumeSize: 10
-      DeleteOnTermination: true
-      Tags:
-       - Key: Name
-         Value: EBSDevInstance
+  # MyDevInstanceEBS:
+  #   Type: AWS::EC2::InstanceEbs
+  #   Properties:
+  #     AvailabilityZone: !Ref InstanceAz1
+  #     VolumeType: gp3
+  #     VolumeSize: 10
+  #     DeleteOnTermination: true
+  #     Tags:
+  #      - Key: Name
+  #        Value: EBSDevInstance
 
   MyDevEc2Instance:
     Type: AWS::EC2::Instance
@@ -77,7 +77,10 @@ Resources:
           Value: EC2DevInstance
       BlockDeviceMapping:
         - DeviceName: /dev/xvda
-          Ebs: !Ref MyDevInstanceEBS
+          Ebs:
+            VolumeType: gp3
+            VolumeSize: 10
+
 
         
 
