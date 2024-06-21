@@ -1,0 +1,13 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Decsription: "Create First Elastic Block Store volume"
+Resources:
+  MyFirstEBSVolume:
+    Type: AWS::EC2::Volume
+    Properties:
+      Tags:
+      - KeyName: Name
+        KeyValue: EBSFromCFTs
+      AvailabilityZone: "ap-south-1a"
+      Size: 1GiBs
+      VolumeType: gp2 
