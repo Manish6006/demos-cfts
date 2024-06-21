@@ -1,0 +1,16 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Creating ec2 instance alone"
+Parameters:
+  Ec2Stack:
+    Description: "First EC2 Instance"
+    Type: "string"
+    Default: "CFT-ec2"
+
+  Resources:
+    Ec2FromCFT:
+      Type: AWS::EC2::Instance
+      Properties:
+        ImageId: ""
+        AvailabilityZone: ""
+        InstanceType: "t2.micro"
