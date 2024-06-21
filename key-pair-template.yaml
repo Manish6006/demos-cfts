@@ -1,0 +1,8 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Creating the key pairs"
+Resources:
+  MyFirstKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: FirstKeyFromCFT
