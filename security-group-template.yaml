@@ -3,7 +3,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "Creating the security groups"
 Resources:
   MyFirstSG:
-    Type: AWS::EC2:SecurityGroup
+    Type: AWS::EC2::SecurityGroup
     Properties:
       Tags:
       - Key: Name
