@@ -1,0 +1,12 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Create new VPC"
+
+Resources:
+  MyFirstVPCcft:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 172.32.0.0/16
+      Tags:
+       - Key: Name
+         Value: VPCFromCFT
