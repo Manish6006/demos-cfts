@@ -7,7 +7,7 @@ Resources:
     Properties:
       AvailabilityZone: "ap-south-1a"
       AvailabilityZoneId: "aps1-az1"
-      CidrBlock: 172.32.16.0/24
+      CidrBlock: 172.32.64.0/24
       Tags:
        - Key: Name
          Value: SubnetSouthAZ1
