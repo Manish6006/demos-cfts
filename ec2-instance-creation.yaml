@@ -1,16 +1,10 @@
 ---
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Creating ec2 instance alone"
-Parameters:
-  Ec2Stack:
-    Description: "First EC2 Instance"
-    Type: "string"
-    Default: "CFT-ec2"
-
-  Resources:
-    Ec2FromCFT:
-      Type: AWS::EC2::Instance
-      Properties:
-        ImageId: "ami-022ce6f32988af5fa"
-        AvailabilityZone: "ap-south-1a"
-        InstanceType: "t2.micro"
+Resources:
+  Ec2FromCFT:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "ami-022ce6f32988af5fa"
+      AvailabilityZone: "ap-south-1a"
+      InstanceType: "t2.micro"
