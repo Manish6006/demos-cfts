@@ -6,7 +6,8 @@ Resources:
     Type: AWS::EC2::Volume
     Properties:
       Tags: 
-        - myfirsttag
+        - Key: Name
+          Value: FirstEBSCFT
       AvailabilityZone: "ap-south-1a"
-      Size: 1GiBs
-      VolumeType: gp2 
+      Size: 1
+      VolumeType: gp3
