@@ -5,9 +5,7 @@ Resources:
   MyNewVPCSubnet:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: "ap-south-1a"
-      AvailabilityZoneId: "aps1-az1"
-      CidrBlock: 172.32.64.0/24
+      CidrBlock: 0.0.0.0/0
       Tags:
        - Key: Name
          Value: SubnetSouthAZ1
